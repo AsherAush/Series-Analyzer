@@ -10,9 +10,7 @@ namespace Series_Analyzer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("yo");
-
-            Console.WriteLine("Hello, World!");
+           
         }
     }
 }
