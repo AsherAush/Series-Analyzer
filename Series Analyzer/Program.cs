@@ -11,6 +11,7 @@ namespace Series_Analyzer
         static void Main(string[] args)
         {
             List<int> series = new List<int>();
+            List<int> series1 = new List<int>();
             //Checks if there are args numbers to use:
             void CheckIfThereAreNumberInArgs()
             {
@@ -19,7 +20,7 @@ namespace Series_Analyzer
                 {
                     if (int.TryParse(arg, out int num))
                     {
-                        ints.Add(int.Parse(arg));
+                        ints.Add((num));
                     }
                     else
                     {
@@ -27,6 +28,7 @@ namespace Series_Analyzer
                         return;
                     }
                 }
+                CheckIfThereAre3PositiveNambers(series);
                 series = ints;
                 return;
             }
@@ -36,19 +38,35 @@ namespace Series_Analyzer
             List<int> InputInts = new List<int>();
                 Console.WriteLine("Enter a sequence of numbers with a comma separating them: ");
                 string[] input  = Console.ReadLine().Split(',');
-                foreach (string ipt in input)
+                List<int> ints = new List<int>();
+                
+
+                if (input.Length < 3) 
                 {
-                    if (int.TryParse(ipt, out int num)) 
+                    Console.WriteLine("rty aghein2");
+                    InputUserNumber();
+                }
+                else
+                {
+
+                    foreach (string ipt in input)
                     {
-                        series.Add(num);
+                   
+
+                        if (int.TryParse(ipt, out int num))
+                        {
+                            series.Add(num);
+                        }
+                        else
+                        {
+                            series = null;
+                            Console.WriteLine("tre aghin");
+                            InputUserNumber();
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("tre aghin");
-                        InputUserNumber();
-                    }
-                return;                
-                } 
+                    CheckIfThereAre3PositiveNambers(series);
+                    return;
+                }
 
             }
 
@@ -59,21 +77,27 @@ namespace Series_Analyzer
                 
 
 
+                List<int> ints = new List<int>();
                 foreach (int number in _series) 
                 {
                     if (number > 0)
                     {
-                        series.Add(number);
+                        series1.Add(number);
                     }
                 }
 
-                if (series.Count < 3)
+                if (series1.Count < 3)
                 {
-                    Console.WriteLine("try agein");
+                    ints = null;
+                    Console.WriteLine("try agein1");
                     InputUserNumber() ;
                 }
                 return ;
             }
+            CheckIfThereAreNumberInArgs();
+            foreach (int ser in series1) { Console.WriteLine(ser); }
+            //foreach (int ser in series) { Console.WriteLine(ser); }
+
 
                 
 
